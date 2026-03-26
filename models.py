@@ -21,6 +21,9 @@ class Admin(UserMixin, db.Model):
 
     def get_role(self):
         return 'admin'
+    
+    def get_id(self):
+        return f"{self.get_role()}_{self.id}"
 
 
 class Company(UserMixin, db.Model):
@@ -48,6 +51,9 @@ class Company(UserMixin, db.Model):
 
     def get_role(self):
         return 'company'
+    
+    def get_id(self):
+        return f"{self.get_role()}_{self.id}"
 
 
 class Student(UserMixin, db.Model):
@@ -76,6 +82,9 @@ class Student(UserMixin, db.Model):
 
     def get_role(self):
         return 'student'
+    
+    def get_id(self):
+        return f"{self.get_role()}_{self.id}"
 
 
 class PlacementDrive(db.Model):

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Student Registration{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3 class="text-center mb-4">
+                    <i class="bi bi-person-plus-fill text-success"></i> Student Registration
+                </h3>
+                <form method="POST" action="{{ url_for('auth.register_student') }}" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control" required placeholder="Enter full name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required placeholder="Enter email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required placeholder="Min 6 characters">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" placeholder="Enter phone number">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Branch</label>
+                            <input type="text" name="branch" class="form-control" placeholder="e.g. CS, EC, ME">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">CGPA</label>
+                            <input type="number" name="cgpa" class="form-control" step="0.01" min="0" max="10" placeholder="e.g. 8.5">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Graduation Year</label>
+                        <input type="number" name="graduation_year" class="form-control" placeholder="e.g. 2025">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Skills</label>
+                        <input type="text" name="skills" class="form-control" placeholder="e.g. Python, SQL, Flask">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Resume (PDF only)</label>
+                        <input type="file" name="resume" class="form-control" accept=".pdf">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Register</button>
+                </form>
+                <div class="text-center mt-3">
+                    <small>Already registered? <a href="{{ url_for('auth.login') }}">Login here</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
